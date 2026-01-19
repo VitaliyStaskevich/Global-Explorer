@@ -1,59 +1,39 @@
-# Map
+# Global Explorer
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.19.
+An interactive web application for exploring countries, their details, and their geographic locations. Built with a focus on modern Angular standards and using Taiga UI.
 
-## Development server
+# Usage & Setup
+## Prerequisites
 
-To start a local development server, run:
+* Node.js (v18+)
 
-```bash
+* Angular CLI 
+``` Bash
+npm install -g @angular/cli
+```
+
+## Installation
+Clone the repository:
+
+``` Bash
+git clone https://github.com/VitaliyStaskevich/global-explorer.git
+cd global-explorer
+```
+Install dependencies:
+
+``` Bash
+npm install
+```
+Run the development server:
+``` Bash
 ng serve
 ```
+Navigate to `http://localhost:4200`
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+To search for the country, start typing (at least 2 characters) and choose one from the list. Clicking on it will bring up all the relevant info about it.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Technologies used
+* Angular 19
+* Taiga UI 4
+* RxJS
+* RESTCountries API
