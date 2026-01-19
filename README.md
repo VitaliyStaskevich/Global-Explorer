@@ -2,6 +2,8 @@
 
 An interactive web application for exploring countries, their details, and their geographic locations. Built with a focus on modern Angular standards and using Taiga UI.
 
+Has a dark and a light mode, text search and a world map to pick and choose different countries.
+
 # Usage & Setup
 ## Prerequisites
 
@@ -37,3 +39,4 @@ To search for the country, start typing (at least 2 characters) and choose one f
 * Taiga UI 4
 * RxJS
 * RESTCountries API
+* AmCharts 5
