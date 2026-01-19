@@ -1,0 +1,48 @@
+<tui-root *ngIf="country$ | async as country">
+  <div class="detail-container">
+    <button tuiButton appearance="flat" size="s" routerLink="/" class="tui-space_bottom-4">
+      Back to Search
+    </button>
+
+    <div tuiIsland size="l">
+      <div class="header-section">
+        <img [src]="country.flags.svg" class="detail-flag" />
+        <div>
+          <h1 tuiTitle>{{ country.name.official }}</h1>
+          <tui-badge [appearance]="country.unMember ? 'success' : 'neutral'">
+            {{ country.unMember ? 'UN Member' : 'Non-UN' }}
+          </tui-badge>
+        </div>
+      </div>
+
+      <hr class="tui-space_vertical-6" />
+
+      <div class="info-grid">
+        <div class="info-item"><span>Capital:</span> <strong>{{ country.capital?.[0] }}</strong></div>
+        <div class="info-item"><span>Population:</span> <strong>{{ country.population | number }}</strong></div>
+        <div class="info-item"><span>Region:</span> <strong>{{ country.region }} ({{ country.subregion }})</strong></div>
+        <div class="info-item"><span>Area:</span> <strong>{{ country.area | number }} km²</strong></div>
+        <div class="info-item"><span>Languages:</span> <strong>{{ getValues(country.languages) }}</strong></div>
+        <div class="info-item"><span>Currency:</span> <strong>{{ getCurrencies(country.currencies) }}</strong></div>
+        <div class="info-item"><span>Continent:</span> <strong>{{ country.continents?.[0] }}</strong></div>
+        <div class="info-item"><span>Timezones:</span> <strong>{{ country.timezones?.[0] }}</strong></div>
+        <div class="info-item"><span>Calling Code:</span> <strong>{{ country.idd.root }}{{ country.idd.suffixes?.[0] }}</strong></div>
+        <div class="info-item"><span>Driving Side:</span> <tui-badge size="s">{{ country.car.side | uppercase }}</tui-badge></div>
+        <div class="info-item"><span>Top Level Domain:</span> <strong>{{ country.tld?.[0] }}</strong></div>
+        <div class="info-item"><span>Independent:</span> <strong>{{ country.independent ? 'Yes' : 'No' }}</strong></div>
+        <div class="info-item"><span>Google Maps:</span> <a tuiLink [href]="country.maps.googleMaps" target="_blank">View Map</a></div>
+        <div class="info-item border-row">
+          <span>Borders:</span> 
+          <div class="border-list">
+            @for (border of country.borders; track border) {
+              <a tuiLink [routerLink]="['/country', border]">{{ border }}</a>
+            } @empty { <span>None</span> }
+          </div>
+        </div>
+        <div class="info-item"><span>Coat of Arms:</span> 
+          <img *ngIf="country.coatOfArms.svg" [src]="country.coatOfArms.svg" class="coat-of-arms" />
+        </div>
+      </div>
+    </div>
+  </div>
+</tui-root>

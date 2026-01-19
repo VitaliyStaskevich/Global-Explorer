@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background-color: var(--tui-base-01); 
+  color: var(--tui-text-primary);       
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+tui-root {
+  display: block;
+  min-height: 100vh;
+}

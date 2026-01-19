@@ -1,0 +1,50 @@
+<tui-root>
+  <div class="explorer-container">
+    <h1 class="tui-text_h3">Global Explorer</h1>
+    
+    <tui-textfield iconStart="@tui.search" class="search-bar">
+      <label tuiLabel>Type a country name (e.g. "Italy")</label>
+      <input tuiTextfield [formControl]="searchControl" />
+    </tui-textfield>
+
+    <hr class="tui-space_vertical-6" />
+  <tui-loader 
+    [overlay]="true" 
+    [showLoader]="(loading$ | async) || false"
+  >
+    <div class="grid">
+      @for (country of countries$ | async; track country.cca3) {
+        
+        <div tuiCardLarge tuiFadeIn [routerLink]="['/country', country.cca3]" class="country-card">
+          <img [src]="country.flags.svg" 
+          [alt]="country.name.common" 
+          class="flag"
+          [tuiHint]="hintContent"
+          tuiHintDirection="top" />
+          
+          <ng-template #hintContent>
+          <div style="padding: 0.5rem">
+            <strong>Subregion:</strong> {{ country.subregion }} <br />
+            <strong>Languages:</strong> {{ getLanguages(country.languages) }} <br />
+            <strong>Currency:</strong> {{ getCurrency(country.currencies) }}
+          </div>
+        </ng-template>
+
+          <h3 tuiTitle>{{ country.name.common }}</h3>
+          <p tuiSubtitle>{{ country.capital?.[0] || 'No Capital' }}</p>
+          
+          <div class="stats">
+            <tui-badge appearance="primary" 
+            class="tui-space_right-2">
+            {{ country.region }}
+            </tui-badge>
+            <span class="tui-text_body-s"> {{ country.population | number }}</span>
+          </div>
+        </div>
+      } @empty {
+        <p class="tui-text_body-m">No results. Try typing more than 2 characters...</p>
+      }
+    </div>
+    </tui-loader>
+  </div>
+</tui-root>
