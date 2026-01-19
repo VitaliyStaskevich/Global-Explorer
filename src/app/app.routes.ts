@@ -8,5 +8,9 @@ export const routes: Routes = [
   {
     path: 'country/:id',
     loadComponent: () => import('./pages/detail/detail.component').then(m => m.DetailComponent)
+  },
+  {
+    path: 'map',
+    loadComponent: () => import('./pages/world-map/world-map.component').then(m => m.WorldMapComponent)
   }
 ];

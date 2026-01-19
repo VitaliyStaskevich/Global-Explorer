@@ -1,7 +1,11 @@
 <tui-root [attr.tuiTheme]="darkMode() ? 'dark' : null">
   <nav style="padding: 1rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--tui-border-normal);">
-    <a tuiLink routerLink="/" style="font-weight: bold; text-decoration: none;">Global Explorer</a>
-
+    <a tuiLink routerLink="/" style="font-weight: bold; text-decoration: none;" iconStart = "@tui.search">Global Explorer</a>
+<div style="display: flex; gap: 12px;">
+    <a tuiButton appearance="flat" size="s" routerLink="/map" iconStart="@tui.map">
+      Open Map
+    </a>
+  </div>
     <button
       tuiButton
       type="button"
