@@ -29,7 +29,6 @@ export class WorldMapComponent implements OnInit, OnDestroy {
 
   initMap() {
     const root = am5.Root.new("chartdiv");
-    
     root.setThemes([am5themes_Animated.new(root)]);
 
     const chart = root.container.children.push(
@@ -52,9 +51,14 @@ export class WorldMapComponent implements OnInit, OnDestroy {
       tooltipText: "{name}",
       interactive: true,
       fill: am5.color(this.darkMode() ? 0x2b2b2b : 0xe0e0e0),
-      stroke: am5.color(this.darkMode() ? 0x444444 : 0xffffff)
+      stroke: am5.color(this.darkMode() ? 0x444444 : 0xffffff),
+      id: undefined
     });
-
+    polygonSeries.mapPolygons.template.adapters.add("ariaLabel", (label, target) => {
+      const dataContext = target.dataItem?.dataContext as any;
+      return dataContext?.id; //us br 
+    });
+        
     polygonSeries.mapPolygons.template.states.create("hover", {
       fill: am5.color(0x008cff) //primary blue
     });
@@ -70,6 +74,8 @@ export class WorldMapComponent implements OnInit, OnDestroy {
     });
 
     this.root = root;
+    //expose for testing
+    (window as any).mapPolygonSeries = polygonSeries;
   }
 
   ngOnDestroy() {
