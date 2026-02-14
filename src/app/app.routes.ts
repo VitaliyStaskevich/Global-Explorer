@@ -3,14 +3,17 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
+    title: 'World Explorer',
     loadComponent: () => import('./pages/home/home.component').then(m => m.HomeComponent)
   },
   {
     path: 'country/:id',
+    title: 'Details',
     loadComponent: () => import('./pages/detail/detail.component').then(m => m.DetailComponent)
   },
   {
     path: 'map',
+    title: 'World Map',
     loadComponent: () => import('./pages/world-map/world-map.component').then(m => m.WorldMapComponent)
   }
 ];
