@@ -84,3 +84,4 @@ export class WorldMapComponent implements OnInit, OnDestroy {
     }
   }
 }
+
