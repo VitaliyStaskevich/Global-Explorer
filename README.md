@@ -34,9 +34,18 @@ Navigate to `http://localhost:4200`
 
 To search for the country, start typing (at least 2 characters) and choose one from the list. Clicking on it will bring up all the relevant info about it.
 
+## e2e testing
+The testing is done using Cypress.
+Running the tests:
+``` Bash
+ng e2e
+```
+
 # Technologies used
 * Angular 19
 * Taiga UI 4
 * RxJS
 * RESTCountries API
 * AmCharts 5
+
+
