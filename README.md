@@ -35,10 +35,16 @@ Navigate to `http://localhost:4200`
 To search for the country, start typing (at least 2 characters) and choose one from the list. Clicking on it will bring up all the relevant info about it.
 
 ## e2e testing
-The testing is done using Cypress.
+The e2e testing is done using Cypress.
 Running the tests:
 ``` Bash
 ng e2e
+```
+## Unit testing
+The unit testing is done using Karma and Jasmine
+Running the unit tests:
+``` Bash
+ng test
 ```
 
 # Technologies used
@@ -47,5 +53,7 @@ ng e2e
 * RxJS
 * RESTCountries API
 * AmCharts 5
+* Cypress
+* Karma and Jasmine
 
 
